@@ -1,3 +1,3 @@
 {
-    "mongoURI":"mongodb+srv://username:password@recipecluster.prpdl.mongodb.net/RecipeApp?retryWrites=true&w=majority"
+    "mongoURI":"mongodb+srv://username:password@recipecluster.prpdl.mongodb.net/Recipe?retryWrites=true&w=majority"
 }

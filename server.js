@@ -17,6 +17,9 @@ app.get('/',(req,res)=>{
     res.send('hello')
 })
 
+app.use('/api/category',require('./routes/category.js'))
+
+
 app.listen(port , ()=>{
     console.log(`Server started at ${port}`)
 });

@@ -37,4 +37,30 @@ router.post("/add",[ check(
     }
 })
 
+router.get("/list",async (req,res)=>{
+  try {
+      let categoryList = await Category.find({})
+      res.status(200).json(categoryList)
+  } catch (error) {
+      res.status(500).json({msg:"Server Error"})
+  }
+})
+
+router.get("/find/:id",async (req,res)=>{
+    try {
+        let id = req.params.id
+        let categoryName = await Category.find({_id:id})
+        if(categoryName.length >0)
+        res.status(200).json({categoryName})    
+        else {
+            res.status(400).json({msg:"Category name is not exist"})
+        }
+    } catch (error) {
+        res.status(500).json({msg:"Server Error"})
+    }
+    
+
+
+})
+
 module.exports = router;

@@ -4,7 +4,6 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 
 const Category = require("../models/category");
-const category = require("../models/category");
 
 router.get("/",(req,res)=>{
     res.send("category geldi")
@@ -24,15 +23,15 @@ router.post("/add",[ check(
         try {
             let category = await Category.findOne({categoryName})
             if(category){
-            return res.status(400).json({ error:{ msg:'User already exist'  } })
+            return res.status(400).json({ error:{ msg:'Category already exist'  } })
             }
             category = new Category({
                 categoryName
             })
             await category.save()
-            res.status(201).json({msg:'User created successfully'})
+            res.status(201).json({msg:'Category created successfully'})
         } catch (error) {
-            
+            res.status(500).json({msg:"Server Error"})
         }
     }
 })

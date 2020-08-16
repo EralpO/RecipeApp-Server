@@ -10,7 +10,7 @@ const RecipeSchema = new mongoose.Schema({
         required:true
     },
     description: {
-        type:String,
+        type:Array,
         required:true
     },
     difficulty : {
@@ -18,8 +18,12 @@ const RecipeSchema = new mongoose.Schema({
         required:true
     },
     ingredients : {
-        type:Array[String],
+        type:Array,
         required:true
+    },
+    category : {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'categories'
     }
 })
 
